@@ -32,14 +32,10 @@ function desencriptar(){
     resultado.textContent=textoDesencriptado;
 }
 function copiar(){
-    var campoTemporal = document.createElement("textarea");
-  campoTemporal.value = resultado.textContent;
-
-  // Agregar el campo temporal al DOM
-  document.body.appendChild(campoTemporal);
+   
 
   // Seleccionar y copiar el contenido del campo temporal
-  campoTemporal.select();
+  resultado.select();
   document.execCommand("copy");
 
   // Eliminar el campo temporal
