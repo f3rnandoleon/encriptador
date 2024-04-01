@@ -32,7 +32,58 @@ function desencriptar(){
     resultado.textContent=textoDesencriptado;
 }
 function copiar(){
-    var textocopiado=resultado.textContent;
-    navigator.clipboard.write(textocopiado);
-    alert("El texto se a copiado:"+textocopiado);
+    var campoTemporal = document.createElement("textarea");
+  campoTemporal.value = resultado.textContent;
+
+  // Agregar el campo temporal al DOM
+  document.body.appendChild(campoTemporal);
+
+  // Seleccionar y copiar el contenido del campo temporal
+  campoTemporal.select();
+  document.execCommand("copy");
+
+  // Eliminar el campo temporal
+  document.body.removeChild(campoTemporal);
+    alert("El texto se a copiado: "+resultado.textContent);
 }
+/*function encriptar(){
+    var texto = document.getElementById("textarea").value.toLowerCase();
+
+    
+    var txtCifrado = texto.replace(/e/img,"enter");
+    var txtCifrado = txtCifrado.replace(/o/img,"ober");
+    var txtCifrado = txtCifrado.replace(/i/img,"imes");
+    var txtCifrado = txtCifrado.replace(/a/img,"ai");
+    var txtCifrado = txtCifrado.replace(/u/img,"ufat");
+
+    document.getElementsByClassName("img-persona")[0].style.display = "none";
+    document.getElementsByClassName("mensaje","texto")[0].style.display = "none";
+    document.getElementById("resultado").style.top = "100px";
+    document.getElementById("resultado").innerHTML = txtCifrado;
+    document.getElementsByClassName("boton-copiar")[0].style.display = "show";
+    document.getElementsByClassName("boton-copiar")[0].style.display = "inherit";
+}
+
+function desencriptar(){
+    var texto = document.getElementById("textarea").value.toLowerCase();
+    
+    var txtCifrado = texto.replace(/enter/img,"e");
+    var txtCifrado = txtCifrado.replace(/ober/img,"o");
+    var txtCifrado = txtCifrado.replace(/imes/img,"i");
+    var txtCifrado = txtCifrado.replace(/ai/img,"a");
+    var txtCifrado = txtCifrado.replace(/ufat/img,"u");
+
+    document.getElementsByClassName("img-persona")[0].style.display = "none";
+    document.getElementsByClassName("mensaje")[0].style.display = "none";
+    document.getElementById("resultado").style.top = "100px";
+    document.getElementById("resultado").innerHTML = txtCifrado;
+    document.getElementsByClassName("boton-copiar")[0].style.display = "show";
+    document.getElementsByClassName("boton-copiar")[0].style.display = "inherit";
+}
+
+function copiar(){
+    var contenido = document.querySelector("#resultado");
+    contenido.select();
+    document.execCommand("copy");
+    alert("Copiado en el portapapeles")
+}*/
